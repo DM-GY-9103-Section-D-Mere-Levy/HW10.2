@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ViT Webcam Capture</title>
+  <style>
+    video, canvas {
+      display: block;
+      margin: 1rem auto;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      display: block;
+      margin: 1rem auto;
+      padding: 0.5rem 1rem;
+      font-size: 16px;
+    }
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 2rem;
+    }
+    .small-button {
+      padding: 0.4rem 0.8rem;
+      font-size: 14px;
+    }
+    #category-output {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">Capture Image from Webcam</h1>
+  <video id="webcam" width="320" height="240" autoplay></video>
+  <button id="capture-btn">Capture Image</button>
+  <canvas id="snapshot" width="320" height="240"></canvas>
+  <div id="prediction-output" style="margin-top: 20px; font-size: 1.2rem;"></div>
+
+  <!-- New buttons -->
+  <div class="button-row">
+    <button class="small-button" onclick="showCategory('You can change this door, door handle and lock yourself.')"></button>
+    <button class="small-button" onclick="showCategory('You can change this sink faucet yourself.')"></button>
+    <button class="small-button" onclick="showCategory('You have a pest infestation. Contact a professional if you cannot control it yourself.')"></button>
+    <button class="small-button" onclick="showCategory('This problem involves electrical wiring. You must contact a professional for help.')"></button>
+    <button class="small-button" onclick="showCategory('This problem involves gas lines. You must contact a professional for help.')"></button>
+  </div>
+
+  <div id="category-output"></div>
+
+  <script>
+    function showCategory(text) {
+      document.getElementById('category-output').textContent = text;
+    }
+  </script>
+  <script src="sketch.js"></script>
+</body>
+</html>
